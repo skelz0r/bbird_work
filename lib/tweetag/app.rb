@@ -1,4 +1,5 @@
 require 'twitter'
+require 'tweet'
 
 module Tweetag
   class Collector
@@ -37,7 +38,16 @@ module Tweetag
         r = Result.new
         r.text = tweet.text
         r.author = tweet.from_user
+        r.id = tweet.id
         @results << r
+      end
+
+      @results.each do |res|
+        t = Tweet.new
+        t.author = res.author
+        t.text = res.text
+        t.id_twitter = res.id
+        t.save
       end
 
     end
@@ -50,7 +60,21 @@ module Tweetag
         @output.puts('Tweet :')
         @output.puts tweet.text
       end
-    
+
+    end
+
+    def twitter_ids_in_db
+
+      tweets_in_db = Tweet.all
+      all_ids = Array.new
+
+      tweets_in_db.each do |tweet|
+        all_ids << tweet.id_twitter
+      end
+
+      return all_ids
+
+
     end
 
   end
@@ -59,7 +83,7 @@ end
 
 class Result
 
-  attr_accessor :author, :text
+  attr_accessor :author, :text, :id
 
   def initialize
   end

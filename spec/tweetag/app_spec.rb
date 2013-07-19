@@ -11,21 +11,32 @@ describe Tweetag::Collector do
   describe "#collect" do
 
 
-    it "collects tweets from the preset_accounts we set" do
+    it "collects tweets from the accounts we set" do
 
       @retriever.results.each do |received_tweet|
         expect(@retriever.preset_account).to eq(received_tweet.author)
+
       end
     end
 
-    it "collects tweets with the preset_hashtag we want" do 
+    it "collects tweets with the hashtag we want" do 
 
       @retriever.results.each do |received_tweet|
         expect(received_tweet.text).to include("##{@retriever.preset_hashtag}")
+
       end
     end
-  end
 
+    it "inserts tweets in the database" do
+
+      tweets_id = @retriever.twitter_ids_in_db
+      @retriever.results.each do |received_tweet|
+        expect(tweets_id).to include(received_tweet.id) 
+      
+      end
+    end
+
+  end
 
   describe "#print" do
     it "displays tweets properly" do
@@ -36,7 +47,7 @@ describe Tweetag::Collector do
       end
 
       @retriever.print
-    
+
     end
   end
 
