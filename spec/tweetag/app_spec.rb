@@ -41,7 +41,7 @@ describe Tweetag::Collector do
   describe "#print" do
     it "displays tweets properly" do
 
-      @retriever.results.each do |received_tweet|
+      @retriever.results.each do
         @output.should_receive(:puts).with('Author :')
         @output.should_receive(:puts).with('Tweet :')
       end

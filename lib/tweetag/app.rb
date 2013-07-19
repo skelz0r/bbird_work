@@ -54,6 +54,18 @@ module Tweetag
 
     def print
 
+      tweets_db = Tweet.new
+      tweets_db = Tweet.all
+      @results = Array.new
+
+      tweets_db.each do |tweet|
+        r = Result.new
+        r.author = tweet.author
+        r.text = tweet.text
+        r.id = tweet.id_twitter
+        @results << r
+      end
+
       @results.each do |tweet|
         @output.puts('Author :')
         @output.puts tweet.author
