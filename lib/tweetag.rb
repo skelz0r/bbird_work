@@ -1,1 +1,5 @@
-require 'tweetag/app'
+require 'tweetag/collector'
+
+module Tweetag
+
+end
