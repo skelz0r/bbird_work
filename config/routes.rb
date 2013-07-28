@@ -1,4 +1,6 @@
 Tweetag::Application.routes.draw do
+  get "tweet/print"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
