@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe TweetController do
 
-  describe "GET 'print'" do
+  describe "GET 'index'" do
     it "returns http success" do
-      get 'print'
+      get 'index'
       response.should be_success
     end
   end
