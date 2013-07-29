@@ -1,6 +1,6 @@
 require 'tweetag'
 
-class TweetController < ApplicationController
+class TweetsController < ApplicationController
   def index 
     @retriever=Tweetag::Collector.new("z0zard","bbird")
     @retriever.collect
