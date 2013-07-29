@@ -1,5 +1,6 @@
 Tweetag::Application.routes.draw do
-  get "tweet/print"
+  # get "tweet/print"
+  resource :tweet, only: [:index ]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
