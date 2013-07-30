@@ -43,3 +43,5 @@ group :development, :test do
 end
 
 gem 'twitter'
+gem "twitter-bootstrap-rails"
+

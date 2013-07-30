@@ -1,0 +1,7 @@
+<% @tweets.each do |tweet| %>
+  <dl> 
+    <%= image_tag("mushroom.png", :alt => "Avatar", :class => "pull-left") %>
+    <dt><%="@"+tweet.author%></dt>
+    <dd><%=tweet.text%></dd>
+  </dl>
+<% end %>
