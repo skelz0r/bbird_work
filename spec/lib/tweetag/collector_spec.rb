@@ -8,7 +8,7 @@ describe Tweetag::Collector do
   end
 
   describe "#collect" do
-    it "inserts tweets in the database" do
+    it "inserts new tweets in the database" do
       expect(Tweet.count).to eq(@db_length+@nb_insert_success)
     end
 

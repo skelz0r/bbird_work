@@ -5,7 +5,7 @@ class Tweetag::Collector
   def initialize(preset_account, preset_hashtag)
     @preset_account = preset_account
     @preset_hashtag = preset_hashtag
-    
+
     # définition des credentials
     Twitter.configure do |config|
       config.consumer_key = "KgdRthRd0H1LvTcYMxBxJQ"
@@ -16,11 +16,13 @@ class Tweetag::Collector
   end
 
   def collect
+    valid_tweets=0
     tweets_info = Twitter.search("##{@preset_hashtag} from:#{@preset_account}}", :result_type => "recent").statuses
     tweets_info.each do |tweet|
-      Tweet.create(text: tweet.text, author: tweet.from_user, id_twitter: tweet.id)
+      t=Tweet.new(text: tweet.text, author: tweet.from_user, id_twitter: tweet.id)
+      valid_tweets+=1 if t.save
     end
-    return tweets_info.length
+    return valid_tweets
   end
 end
 

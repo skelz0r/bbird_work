@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TweetController do
+describe TweetsController do
 
   describe "GET 'index'" do
     it "returns http success" do
