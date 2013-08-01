@@ -1,0 +1,37 @@
+tr.fifty {
+  th, td{
+    width: 50%;
+  }
+}
+tr.twenty {
+  th td{
+    width: 20%;
+  }
+}
+
+body{
+height: 100%;
+
+}
+
+.canvas{
+  height: 100%;
+  weight: 100%;
+  td {
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-top: none;
+  }
+  th{
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-bottom: none;
+    p{
+      font-size: 200%;
+    }
+  }
+  img.icone{
+    height: 40%;
+  }
+}

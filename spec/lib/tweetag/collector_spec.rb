@@ -12,9 +12,12 @@ describe Tweetag::Collector do
       expect(Tweet.count).to eq(@db_length+@nb_insert_success)
     end
 
+
+    # au final j'aimerai bien que ça se fasse avec les id ça lololol
+
     it "collects tweets from the accounts we set" do
       Tweet.all.each do |received_tweet|
-        expect(@retriever.preset_account).to eq(received_tweet.author)
+        expect(@retriever.preset_account).to eq(received_tweet.user.login_twitter)
       end
     end
 

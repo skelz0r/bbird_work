@@ -19,7 +19,8 @@ class Tweetag::Collector
     valid_tweets=0
     tweets_info = Twitter.search("##{@preset_hashtag} from:#{@preset_account}}", :result_type => "recent").statuses
     tweets_info.each do |tweet|
-      t=Tweet.new(text: tweet.text, author: tweet.from_user, id_twitter: tweet.id)
+      u=User.new(id_twitter: tweet.user.id, name: tweet.user.name, login_twitter: tweet.from_user)
+      t=Tweet.new(text: tweet.text, user: u, id_twitter: tweet.id)
       valid_tweets+=1 if t.save
     end
     return valid_tweets
