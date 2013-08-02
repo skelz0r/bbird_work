@@ -8,31 +8,25 @@ describe Tweet do
   end
 
   it "must be valid" do
-    tweet = Tweet.new(@attr)
-    tweet.should be_valid
+    Tweet.new(@attr).should be_valid
   end
 
   describe "#author" do
     it "is not valid if it has no author" do
       @attr[:user]=nil
-      tweet = Tweet.new(@attr)
-      tweet.should_not be_valid
+      Tweet.new(@attr).should_not be_valid
     end
   end
 
   describe "#id_twitter" do
-
     it "is not valid if its twitter id is already in db" do 
       Tweet.create(@attr)
-      tweet = Tweet.new(@attr)
-      tweet.should_not be_valid
+      Tweet.new(@attr).should_not be_valid
     end
 
     it "is not valid if it has no twitter id" do
       @attr[:id_twitter]=nil
-      tweet = Tweet.new(@attr)
-      tweet.should_not be_valid
+      Tweet.new(@attr).should_not be_valid
     end
-
   end
 end
