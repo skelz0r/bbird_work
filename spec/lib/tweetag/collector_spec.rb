@@ -15,13 +15,13 @@ describe Tweetag::Collector do
 
     # au final j'aimerai bien que ça se fasse avec les id ça lololol
 
-    it "collects tweets from the accounts we set" do
+    it "tweets from the account of our db-users" do
       Tweet.all.each do |received_tweet|
         expect(@retriever.preset_account).to eq(received_tweet.user.login_twitter)
       end
     end
 
-    it "collects tweets with the hashtag we want" do 
+    it "tweets with the hashtag we want" do 
       Tweet.all.each do |received_tweet|
         expect(received_tweet.text).to include("##{@retriever.preset_hashtag}")
       end
