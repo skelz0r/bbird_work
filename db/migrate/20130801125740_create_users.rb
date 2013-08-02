@@ -3,7 +3,6 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.string :mail
-      t.integer :id_twitter
       t.string :login_twitter
 
       t.timestamps

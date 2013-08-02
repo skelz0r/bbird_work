@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20130801125740) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "mail"
-    t.integer  "id_twitter"
     t.string   "login_twitter"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false

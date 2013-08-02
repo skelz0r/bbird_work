@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   before(:each) do
-    @attr = {name: "me", id_twitter: 1000, mail: "me@gmail.com", login_twitter: "thisisme" }
+    @attr = {name: "me", mail: "me@gmail.com", login_twitter: "one" }
   end
 
   it "must be valid" do
@@ -20,20 +20,20 @@ describe User do
 
   describe "#id_twitter" do
 
-    it "is not valid if twitter id already in db" do
+    it "is not valid if twitter login already in db" do
       User.create(@attr)
       User.new(@attr).should_not be_valid
     end
   end
 
-  describe "#all_id_twitter" do
-    it "returns twitter_ids of users having twitter accounts" do
-      User.create(@attr) # id_twitter vaut 1000
-      @attr[:id_twitter]=2000
+  describe "#all_twitter_login" do
+    it "returns twitter logins of users having twitter accounts" do
+      User.create(@attr) # login_twitter = one
+      @attr[:login_twitter]="two"
       User.create(@attr) 
-      @attr[:id_twitter]=nil
+      @attr[:login_twitter]=nil
       User.create(@attr)
-      User.all_id_twitter.should eq([1000,2000])
+      User.all_twitter_login.should eq(["one","two"])
     end
   end
 

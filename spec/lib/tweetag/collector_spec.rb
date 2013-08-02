@@ -17,7 +17,7 @@ describe Tweetag::Collector do
 
     it "tweets from the account of our db-users" do
       Tweet.all.each do |received_tweet|
-        expect(@retriever.preset_account).to eq(received_tweet.user.login_twitter)
+        expect(@retriever.User.all_twitter_login).to include(received_tweet.user.id)
       end
     end
 

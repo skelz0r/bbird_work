@@ -1,15 +1,15 @@
 class User < ActiveRecord::Base
-  attr_accessible :mail, :name, :id_twitter, :login_twitter
+  attr_accessible :mail, :name, :login_twitter
   has_many :tweets
-  validates_uniqueness_of :id_twitter
+  validates_uniqueness_of :login_twitter
   validates_presence_of :name
 
-  def self.all_id_twitter
-    ids_twitter=Array.new
+  def self.all_twitter_login
+    logins_twitter=Array.new
     User.all.each do |user|
-      ids_twitter << user.id_twitter if not user.id_twitter.nil?
+      logins_twitter << user.login_twitter if user.login_twitter.present?
     end
-    return ids_twitter
+    return logins_twitter
   end
 
 end
