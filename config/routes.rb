@@ -1,5 +1,7 @@
 Tweetag::Application.routes.draw do
   
+  devise_for :users
+
   resources :tweets, :only => [:index]
   resources :canvas, :only => [:index]
 

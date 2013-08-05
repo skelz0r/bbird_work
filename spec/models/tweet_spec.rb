@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Tweet do
 
   before(:each) do
-    @attr_user = { name: "me", mail: "me@gmail.com", login_twitter: "thisisme" }
+    @attr_user = { name: "me", email: "me@gmail.com", login_twitter: "thisisme", password: "12345678" }
     @attr = {user: User.new(@attr_user), id_twitter: 1000, text: "hello" }
   end
 

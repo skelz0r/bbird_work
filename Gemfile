@@ -44,4 +44,4 @@ end
 
 gem 'twitter'
 gem "twitter-bootstrap-rails"
-
+gem 'devise'
