@@ -41,3 +41,7 @@ require 'tweetag'
 require 'capybara/rspec'
 require 'capybara/rails'
 
+include Warden::Test::Helpers
+Warden.test_mode!
+
+
