@@ -2,11 +2,13 @@
   <th> ID </th>
   <th> Name </th>
   <th> Twitter </th>
+  <th> Email </th>
   <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
       <td><%= user.name %></td>
       <td><%= user.login_twitter %></td>
+      <td><%= user.email %></td>
     </tr>
   <% end %>
   <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>

@@ -38,3 +38,6 @@ RSpec.configure do |config|
 end
 
 require 'tweetag'
+require 'capybara/rspec'
+require 'capybara/rails'
+

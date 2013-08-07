@@ -1,13 +1,14 @@
 Tweetag::Application.routes.draw do
 
-  devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
-
+  root to: 'home#index'
+  
+  devise_for :users
 
   resources :tweets, :only => [:index]
   resources :canvas, :only => [:index]
   resources :users, :only => [:index]
 
-  match 'user_root' => 'users#index', as: :user_root
+  match 'user_root' => 'canvas#index', as: :user_root
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
