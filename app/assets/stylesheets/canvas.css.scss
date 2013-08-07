@@ -4,7 +4,7 @@ tr.fifty {
   }
 }
 tr.twenty {
-  th td{
+  th, td{
     width: 20%;
   }
 }
@@ -16,12 +16,15 @@ height: 100%;
 
 .canvas{
   height: 100%;
-  weight: 100%;
+  width: 100%;
   td {
     border-left: 1px solid;
     border-right: 1px solid;
     border-bottom: 1px solid;
     border-top: none;
+    textarea {
+    resize: none;
+    }
   }
   th{
     border-left: 1px solid;
