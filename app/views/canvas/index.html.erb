@@ -8,31 +8,65 @@
       <th colspan=2>CS</th>
     </tr>
     <tr class="twenty" >
-      <td rowspan=3 colspan=2 OnClick="textarea_pop()" >
-        <div id="text" style="display:none">
-          <textarea name="textarea" id="textarea" >Mon textarea</textarea>
-        </div>
+      <td rowspan=3 colspan=2 >
+        <%= form_for @blocks[0], :html => { :id => "block_1" }  do |f| %>
+          <%= f.text_area :content %>
+          <%= f.hidden_field :id_case %>
+          <%= f.submit "Save" %>
+        <% end %>
       </td>
-      <td colspan=2>2</td>
-      <td rowspan=3 colspan=2>3</td>
-      <td colspan=2>4</td>
-      <td rowspan=3 colspan=2>5</td>
+      <td colspan=2> 
+        <textarea>
+          <%=  Block.find_by_id_case(2).content %>
+        </textarea>
+      </td>
+      <td rowspan=3 colspan=2>
+        <textarea>
+          <%= Block.find_by_id_case(3).content %>
+        </textarea>
+      </td>
+      <td colspan=2>
+        <textarea>
+          <%= Block.find_by_id_case(4).content %>
+        </textarea>
+      </td>
+      <td rowspan=3 colspan=2>
+        <textarea>
+          <%= Block.find_by_id_case(5).content %>
+        </textarea>
+      </td>
     </tr>
     <tr class="twenty" >
       <th colspan=2>Bh</th>
       <th colspan=2>Bh</th>
     </tr>
     <tr class="twenty" >
-      <td colspan=2>6</td>
-      <td colspan=2>7</td>
+      <td colspan=2>
+        <textarea>
+          <%= Block.find_by_id_case(6).content %>
+        </textarea>
+      </td>
+      <td colspan=2>
+        <textarea>
+          <%= Block.find_by_id_case(7).content %>
+        </textarea>
+      </td>
     </tr>
     <tr class="fifty">
       <th colspan=5>Ch</th>
       <th colspan=5>Ch</th>
     </tr>
     <tr class="fifty" >
-      <td colspan=5>8</td>
-      <td colspan=5>9</td>
+      <td colspan=5>
+        <textarea>
+          <%= Block.find_by_id_case(8).content %>
+        </textarea>
+      </td>
+      <td colspan=5>
+        <textarea>
+          <%= Block.find_by_id_case(9).content %>
+        </textarea>
+      </td>
     </tr>
   </table>
 </body>
