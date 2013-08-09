@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :login_twitter
   validates_presence_of :name
 
+  has_many :canvases
+
   def self.all_twitter_login
     logins_twitter=Array.new
     User.all.each do |user|

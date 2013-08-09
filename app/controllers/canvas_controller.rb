@@ -5,7 +5,7 @@ class CanvasController < ApplicationController
   def index
     @blocks=Array.new
     9.times do |acc|
-      @blocks << Block.find_by_id_case(acc+1)
+      @blocks << Block.find_or_create_by_id_case(acc+1)
     end
   end
 end
