@@ -32,4 +32,5 @@ describe Canvas do
       Canvas.new(@attr).should_not be_valid
     end
   end
+
 end

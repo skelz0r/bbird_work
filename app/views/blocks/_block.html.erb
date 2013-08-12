@@ -1,0 +1,6 @@
+<%= form_for block, :html => { :id => "block_"+block.id_case.to_s}  do |f| %>
+  <%= f.text_area :content, :size => "5x4"  %>
+  <%= f.hidden_field :id_case %>
+  <%= f.hidden_field :canvas_id %>
+  <%= f.submit "Save" %>
+<% end %>

@@ -1,72 +1,9 @@
-<body >
-  <table class="table canvas" cellspacing=0 >
-    <tr class="twenty">
-      <th colspan=2>KP</th>
-      <th colspan=2>KA</th>
-      <th colspan=2>VP</th>
-      <th colspan=2>CR</th>
-      <th colspan=2>CS</th>
-    </tr>
-    <tr class="twenty" >
-      <td rowspan=3 colspan=2 >
-        <%= form_for @blocks[0], :html => { :id => "block_1" }  do |f| %>
-          <%= f.text_area :content %>
-          <%= f.hidden_field :id_case %>
-          <%= f.submit "Save" %>
-        <% end %>
-      </td>
-      <td colspan=2> 
-        <textarea>
-          <%=  Block.find_by_id_case(2).content %>
-        </textarea>
-      </td>
-      <td rowspan=3 colspan=2>
-        <textarea>
-          <%= Block.find_by_id_case(3).content %>
-        </textarea>
-      </td>
-      <td colspan=2>
-        <textarea>
-          <%= Block.find_by_id_case(4).content %>
-        </textarea>
-      </td>
-      <td rowspan=3 colspan=2>
-        <textarea>
-          <%= Block.find_by_id_case(5).content %>
-        </textarea>
-      </td>
-    </tr>
-    <tr class="twenty" >
-      <th colspan=2>Bh</th>
-      <th colspan=2>Bh</th>
-    </tr>
-    <tr class="twenty" >
-      <td colspan=2>
-        <textarea>
-          <%= Block.find_by_id_case(6).content %>
-        </textarea>
-      </td>
-      <td colspan=2>
-        <textarea>
-          <%= Block.find_by_id_case(7).content %>
-        </textarea>
-      </td>
-    </tr>
-    <tr class="fifty">
-      <th colspan=5>Ch</th>
-      <th colspan=5>Ch</th>
-    </tr>
-    <tr class="fifty" >
-      <td colspan=5>
-        <textarea>
-          <%= Block.find_by_id_case(8).content %>
-        </textarea>
-      </td>
-      <td colspan=5>
-        <textarea>
-          <%= Block.find_by_id_case(9).content %>
-        </textarea>
-      </td>
-    </tr>
-  </table>
+<body>
+  <ul>
+    <% @canvas.each do |canva| %>
+    <li>
+      <%= link_to "Canvas" + canva.id.to_s, "/canvas/" + canva.id.to_s  %>
+      </li>
+    <% end %>
+  </ul>
 </body>
