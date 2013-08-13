@@ -15,12 +15,12 @@ describe "canvas" do
     end
   end
 
-  it "textareas make changes in database" do
+  it "textareas make changes in database", :js => true do
     all("td").each_with_index do |td, index|
       within("form#block_"+(index+1).to_s) do
         fill_in 'block_content', :with => '123456789'+index.to_s
-        click_button('Save')
       end
+      #page.driver.execute_script("document.getElementById('block_'#{(index+1).to_s}).submit();")
       @c.content_of_block(index+1).should have_content('123456789'+index.to_s)
     end
   end

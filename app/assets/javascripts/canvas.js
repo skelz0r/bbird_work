@@ -1,17 +1,5 @@
-var lion=false;
+$('.edit_block').children('textarea').on('focusout', function(){
+  block_id=$(this).parent().attr('id');
+  document.getElementById(block_id).submit();
+});
 
-function textarea_pop()
-{
-  $("#text").fadeIn();
-  lion=true;
-}
-
-$('td').click(function() {
- if ( !lion ){
-  $("#text").fadeOut();
- }
- else
-   lion=false;
-  });
-
-console.log(lion);
