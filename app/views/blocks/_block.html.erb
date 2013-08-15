@@ -2,4 +2,9 @@
   <%= f.text_area :content, :size => "5x4"  %>
   <%= f.hidden_field :id_case %>
   <%= f.hidden_field :canvas_id %>
+  <%= f.submit "Submit" %>
 <% end %>
+<script>
+  // FIXME testme
+  $("form#block_<%= block.id_case.to_s %> input[type='submit']").hide();
+</script>
